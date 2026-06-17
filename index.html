@@ -723,3 +723,342 @@
       align-items: center;
       justify-content: space-between;
       flex-wrap: wrap;
+      gap: 1rem;
+    }
+
+    .footer-bottom p {
+      font-size: 0.8rem; /* ขยายขึ้น */
+      font-weight: 300;
+      color: rgba(255,255,255,0.35);
+    }
+
+    .footer-bottom-links {
+      display: flex;
+      gap: 1.5rem;
+    }
+
+    .footer-bottom-links a {
+      font-size: 0.8rem; /* ขยายขึ้น */
+      font-weight: 300;
+      color: rgba(255,255,255,0.35);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+
+    .footer-bottom-links a:hover { color: var(--gold-light); }
+
+    /* ────────────────────────────────────
+       ANIMATIONS
+    ──────────────────────────────────── */
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(28px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes scrollPulse {
+      0%, 100% { opacity: 0.5; transform: scaleY(1); }
+      50%        { opacity: 1;   transform: scaleY(1.15); }
+    }
+
+    /* scroll-reveal utility */
+    .reveal {
+      opacity: 0;
+      transform: translateY(32px);
+      transition: opacity 0.8s ease, transform 0.8s ease;
+    }
+
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* ────────────────────────────────────
+       RESPONSIVE
+    ──────────────────────────────────── */
+    @media (max-width: 1024px) {
+      .restaurant-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+      .restaurant-card:first-child {
+        grid-column: span 2;
+      }
+      .footer-top {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .nav { padding: 1.2rem 1.5rem; }
+      .nav.scrolled { padding: 0.9rem 1.5rem; }
+      .nav-links, .nav-cta { display: none; }
+      .nav-burger { display: flex; }
+
+      .restaurant-grid {
+        grid-template-columns: 1fr;
+      }
+      .restaurant-card:first-child {
+        grid-column: span 1;
+      }
+
+      .footer-top {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+      }
+
+      footer {
+        padding: 4rem 1.5rem 1.5rem;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .philosophy-pillars {
+        gap: 2rem;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        transition-duration: 0.01ms !important;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <nav class="nav" id="nav">
+    <a href="#" class="nav-logo">THE <span>SKY</span> GROUP</a>
+    <ul class="nav-links">
+      <li><a href="#philosophy">Our Story</a></li>
+      <li><a href="#restaurants">Restaurants</a></li>
+      <li><a href="#contact">Events</a></li>
+    </ul>
+    <a href="reservation.html" class="nav-cta">Reserve a Table</a>
+    <button class="nav-burger" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+
+  <section class="hero">
+    <div class="hero-bg" id="heroBg"></div>
+    <div class="hero-overlay"></div>
+
+    <div class="hero-content">
+      <p class="hero-eyebrow">Hospitality Group · Est. 2019</p>
+      <h1 class="hero-title">THE<br><em>Sky</em><br>GROUP</h1>
+      <p class="hero-sub">Where the horizon finds its warmth —<br>remarkable dining, curated stays, unforgettable moments.</p>
+      <div class="hero-actions">
+        <a href="#restaurants" class="btn-primary">Explore Destinations</a>
+        <a href="#philosophy" class="btn-ghost">Our Philosophy</a>
+      </div>
+    </div>
+
+    <div class="hero-scroll">
+    </div>
+  </section>
+
+  <section class="philosophy" id="philosophy">
+    <div class="philosophy-inner">
+      <p class="section-eyebrow reveal">Philosophy</p>
+      <div class="ornament reveal"><div class="ornament-line"></div><div class="ornament-diamond"></div><div class="ornament-line"></div></div>
+      <h2 class="section-title reveal">Every meal is a memory<br><em>waiting to be made.</em></h2>
+      <p class="philosophy-body reveal">
+        We believe that truly great hospitality is not about grandeur —
+        it is about presence. The flicker of a candle at dusk, the scent of the sea
+        carried on an evening breeze, a dish prepared with the patience of generations.
+        At The Sky Group, every detail is curated for the singular joy of our guests.
+      </p>
+
+      <div class="philosophy-quote reveal">
+        <blockquote>
+          "To host well is to listen before you speak, to offer warmth before it is asked for,
+          and to remember that the table is where the world slows down."
+        </blockquote>
+        <cite>— Founder & CEO, The Sky Group</cite>
+      </div>
+
+      <div class="philosophy-pillars">
+        <div class="pillar reveal">
+          <div class="pillar-icon">✦</div>
+          <h4>Craft</h4>
+          <p>Menus built around the seasons, sourced from local hands.</p>
+        </div>
+        <div class="pillar reveal">
+          <div class="pillar-icon">✦</div>
+          <h4>Warmth</h4>
+          <p>Genuine hospitality that makes every guest feel at home.</p>
+        </div>
+        <div class="pillar reveal">
+          <div class="pillar-icon">✦</div>
+          <h4>Place</h4>
+          <p>Venues that honour the landscapes they are born from.</p>
+        </div>
+        <div class="pillar reveal">
+          <div class="pillar-icon">✦</div>
+          <h4>Memory</h4>
+          <p>Experiences worth returning to, year after year.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="restaurants" id="restaurants">
+    <div class="restaurants-header">
+      <p class="section-eyebrow reveal">Destination Restaurants</p>
+      <div class="ornament reveal"><div class="ornament-line"></div><div class="ornament-diamond"></div><div class="ornament-line"></div></div>
+      <h2 class="section-title reveal">Five venues,<br><em>one spirit.</em></h2>
+    </div>
+
+    <div class="restaurant-grid">
+      <div class="restaurant-card reveal" onclick="window.location.href='salarimlay.html'">
+        <img class="restaurant-card-img"
+          src="https://images.unsplash.com/photo-1559339352-11d035aa65de?w=1200&q=80"
+          alt="Sala Rimlay — oceanfront dining" loading="lazy" />
+        <div class="restaurant-card-overlay">
+          <span class="card-tag">Signature · Seafood</span>
+          <h3 class="card-name">Sala Rimlay</h3>
+          <p class="card-location">Na Kluea Beach, Pattaya</p>
+          <span class="card-arrow">Discover ›</span>
+        </div>
+      </div>
+      <div class="restaurant-card reveal" onclick="window.location.href='glasshouse.html'">
+        <img class="restaurant-card-img"
+          src="https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=900&q=80"
+          alt="The Glasshouse — rooftop brasserie" loading="lazy" />
+        <div class="restaurant-card-overlay">
+          <span class="card-tag">Rooftop · European</span>
+          <h3 class="card-name">The Glasshouse</h3>
+          <p class="card-location">Pattaya Hilltop</p>
+          <span class="card-arrow">Discover ›</span>
+        </div>
+      </div>
+
+      <div class="restaurant-card reveal" onclick="window.location.href='saithong.html'">
+        <img class="restaurant-card-img"
+          src="https://images.unsplash.com/photo-1600891964599-f61ba0e24092?w=900&q=80"
+          alt="Sai Thong — salt-flat terrace" loading="lazy" />
+        <div class="restaurant-card-overlay">
+          <span class="card-tag">Sunset Terrace · Thai</span>
+          <h3 class="card-name">Sai Thong</h3>
+          <p class="card-location">Na Kluea Salt Flats</p>
+          <span class="card-arrow">Discover ›</span>
+        </div>
+      </div>
+
+      <div class="restaurant-card reveal" onclick="window.location.href='ember.html'">
+        <img class="restaurant-card-img"
+          src="https://images.unsplash.com/photo-1555396273-367ea4eb4db5?w=900&q=80"
+          alt="Ember — fine dining" loading="lazy" />
+        <div class="restaurant-card-overlay">
+          <span class="card-tag">Fine Dining · Omakase</span>
+          <h3 class="card-name">Ember</h3>
+          <p class="card-location">Sukhumvit, Bangkok</p>
+          <span class="card-arrow">Discover ›</span>
+        </div>
+      </div>
+
+      <div class="restaurant-card reveal" onclick="window.location.href='kholounge.html'">
+        <img class="restaurant-card-img"
+          src="https://images.unsplash.com/photo-1561047029-3000c68339ca?w=900&q=80"
+          alt="Kho Lounge — beach bar" loading="lazy" />
+        <div class="restaurant-card-overlay">
+          <span class="card-tag">Beach Lounge · Cocktails</span>
+          <h3 class="card-name">Kho Lounge</h3>
+          <p class="card-location">Koh Larn Island</p>
+          <span class="card-arrow">Discover ›</span>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <footer id="contact">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <div class="footer-brand-logo">The <span>Sky</span> Group</div>
+        <p>Five restaurants, one unwavering commitment to the art of welcome. Join us wherever the sky meets the sea.</p>
+        <div class="footer-socials">
+          <a href="#" class="social-btn" aria-label="Instagram">IG</a>
+          <a href="#" class="social-btn" aria-label="Facebook">FB</a>
+          <a href="#" class="social-btn" aria-label="LINE">LN</a>
+          <a href="#" class="social-btn" aria-label="YouTube">YT</a>
+        </div>
+      </div>
+
+      <div class="footer-col">
+        <h5>Navigate</h5>
+        <ul>
+          <li><a href="#philosophy">Our Story</a></li>
+          <li><a href="#restaurants">Restaurants</a></li>
+          <li><a href="#">Private Events</a></li>
+          <li><a href="#">Gift Vouchers</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h5>Contact</h5>
+        <div class="footer-contact-item">
+          <span class="label">Reservations</span>
+          <span class="value">+66 38 000 000</span>
+        </div>
+        <div class="footer-contact-item">
+          <span class="label">Events & Groups</span>
+          <span class="value">events@skygroup.th</span>
+        </div>
+        <div class="footer-contact-item">
+          <span class="label">Head Office</span>
+          <span class="value">Na Kluea, Chon Buri 20150</span>
+        </div>
+      </div>
+
+      <div class="footer-col">
+        <h5>Stay Connected</h5>
+        <p style="font-size:0.85rem;font-weight:300;line-height:1.8;color:rgba(255,255,255,0.5);margin-bottom:0.2rem;">
+          Seasonal menus, new openings, and exclusive events — delivered quietly to your inbox.
+        </p>
+        <div class="footer-newsletter">
+          <div class="newsletter-input-wrap">
+            <input type="email" placeholder="your@email.com" aria-label="Email address" />
+            <button type="button">Join</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <p>© 2026 The Sky Group Co., Ltd. · All rights reserved.</p>
+      <div class="footer-bottom-links">
+        <a href="#">Privacy Policy</a>
+        <a href="#">Terms of Use</a>
+        <a href="#">Cookies</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Nav scroll state
+    const nav = document.getElementById('nav');
+    window.addEventListener('scroll', () => {
+      nav.classList.toggle('scrolled', window.scrollY > 60);
+    });
+
+    // Hero BG lazy load + zoom-in
+    const heroBg = document.getElementById('heroBg');
+    setTimeout(() => heroBg.classList.add('loaded'), 100);
+
+    // Scroll reveal
+    const revealEls = document.querySelectorAll('.reveal');
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+
+    revealEls.forEach(el => observer.observe(el));
+  </script>
+</body>
+</html>
