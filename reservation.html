@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Reservation — THE SKY GROUP</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Poppins:wght@300;400;500&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --cream: #F5F0E8; --brown-deep: #2C1F14; --gold: #C9964A; --gold-light: #E8C07A; --text-body: #3A2D22;
+      --ff-serif: 'Playfair Display', serif; --ff-sans: 'Poppins', sans-serif;
+    }
+    body { background-color: var(--cream); color: var(--text-body); font-family: var(--ff-sans); padding: 4rem 10%; margin: 0; }
+    
+    .nav { margin-bottom: 3rem; }
+    .back-btn { text-decoration: none; color: var(--gold); font-size: 0.8rem; letter-spacing: 0.1em; text-transform: uppercase; }
+    
+    h1 { font-family: var(--ff-serif); color: var(--brown-deep); font-size: 3rem; margin-bottom: 2rem; }
+
+    .reservation-form { display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; max-width: 900px; }
+    .form-group { display: flex; flex-direction: column; }
+    .full-width { grid-column: span 2; }
+    
+    label { font-size: 0.75rem; letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 0.5rem; color: var(--gold); }
+    input, select, textarea { 
+      background: transparent; border: none; border-bottom: 1px solid rgba(44, 31, 20, 0.2); 
+      padding: 0.8rem 0; font-family: var(--ff-sans); color: var(--text-body); outline: none; transition: border 0.3s;
+    }
+    input:focus, select:focus, textarea:focus { border-bottom: 1px solid var(--gold); }
+    
+    .submit-btn { 
+      grid-column: span 2; background: var(--brown-deep); color: #fff; border: none; 
+      padding: 1.2rem; cursor: pointer; letter-spacing: 0.2em; text-transform: uppercase; 
+      transition: background 0.3s; margin-top: 1rem;
+    }
+    .submit-btn:hover { background: var(--gold); }
+
+    @media (max-width: 768px) { .reservation-form { grid-template-columns: 1fr; } .full-width, .submit-btn { grid-column: span 1; } }
+  </style>
+</head>
+<body>
+
+  <div class="nav">
+    <a href="index.html" class="back-btn">‹ Back to Home</a>
+  </div>
+
+  <h1>Make a Reservation</h1>
+
+  <form class="reservation-form">
+    <div class="form-group full-width">
+      <label>Select Venue</label>
+      <select required>
+        <option value="moment">The Moment</option>
+        <option value="salarimlay">Sala Rimlay</option>
+        <option value="glasshouse">The Glasshouse</option>
+        <option value="saithong">Sai Thong</option>
+        <option value="ember">Ember</option>
+        <option value="kholounge">Kho Lounge</option>
+      </select>
+    </div>
+
+    <div class="form-group">
+      <label>Date</label>
+      <input type="date" required>
+    </div>
+
+    <div class="form-group">
+      <label>Time</label>
+      <select required>
+        <option>12:00 PM</option><option>18:00 PM</option><option>20:00 PM</option>
+      </select>
+    </div>
+
+    <div class="form-group">
+      <label>Guests</label>
+      <select required>
+        <option>1 Person</option><option>2 People</option><option>4 People</option><option>6+ People</option>
+      </select>
+    </div>
+
+    <div class="form-group">
+      <label>Occasion</label>
+      <select>
+        <option>Standard Dining</option><option>Birthday</option><option>Anniversary</option><option>Business</option>
+      </select>
+    </div>
+
+    <div class="form-group full-width">
+      <label>First Name & Last Name</label>
+      <input type="text" placeholder="Enter your full name" required>
+    </div>
+
+    <div class="form-group">
+      <label>Phone Number</label>
+      <input type="tel" placeholder="08x-xxx-xxxx" required>
+    </div>
+
+    <div class="form-group">
+      <label>Email</label>
+      <input type="email" placeholder="example@mail.com" required>
+    </div>
+
+    <div class="form-group full-width">
+      <label>Special Requests</label>
+      <textarea rows="3" placeholder="Allergies, seating preferences, etc."></textarea>
+    </div>
+
+    <button type="submit" class="submit-btn">Confirm Reservation</button>
+  </form>
+
+</body>
+</html>
